@@ -10,6 +10,7 @@ class Validator {
         if(!validator.validate(email)) {
 
             return new Error("Invalid Email");
+           
         }
         return true;
     }

@@ -3,6 +3,7 @@ const axios = require('axios');
 const utils = require('../util/Utils');
 const typeorm = require('../database/typeorm');
 const User = require('../database/model/userModel');
+const validation = require("../validation/objectValidation");
 
 
 class UserService {
@@ -29,7 +30,12 @@ class UserService {
 
     static insertUser = async (code) => {
      
-        console.log(code);
+        // check validations
+        if(!validation.checkEmail(code.email) || !validation.checkPassword(code.password)) {
+           throw new Error("Invalid Email, and password must be least at 6 charackters");
+        }
+
+       console.log(code);
        let result =  await typeorm.connection
         .createQueryBuilder()
         .insert()

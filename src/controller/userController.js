@@ -2,6 +2,7 @@ const router = require("express").Router();
 const userService = require("../services/userService");
 
 
+
 //  GET user by id
 router.get("/user/api1/user_by_id/:id",( async (req,res) => {
 
@@ -20,7 +21,7 @@ router.get("/user/api1/user_by_id/:id",( async (req,res) => {
 router.post("/user/api1/add_new_user",async (req,res) => {
     try {
 
-        console.log(req.body);
+        
         const result = await userService.insertUser(req.body);
         res.status(200).send("User has been succsessfully added !!!");
 
