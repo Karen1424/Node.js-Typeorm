@@ -19,12 +19,27 @@ router.get("/user/api1/user_by_id/:id",( async (req,res) => {
 // POST new data
 router.post("/user/api1/add_new_user",async (req,res) => {
     try {
+
         console.log(req.body);
         const result = await userService.insertUser(req.body);
         res.status(200).send("User has been succsessfully added !!!");
 
     } catch(error) {
         
+        return res.status(400).json(error.message);
+    }
+});
+
+// UPDATE user-fields
+router.put("/user/api1/update_user_fields", async (req, res) => {
+
+    try {
+
+        const result = await userService.updateUserFields(req.query.id,req.body);
+        res.status(200).send(`User with ${req.query.id} Id succsessfully updated !!!`);
+
+    } catch (error) {
+
         return res.status(400).json(error.message);
     }
 });

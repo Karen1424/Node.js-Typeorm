@@ -2,7 +2,7 @@
 const EntitySchema = require('typeorm').EntitySchema;
 
 // Local requires
-const User = require('../model/userModel.js');
+const User = require('../model/userModel');
 
 module.exports = new EntitySchema({
     tableName: "Users",
