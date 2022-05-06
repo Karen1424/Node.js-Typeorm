@@ -1,7 +1,7 @@
 const typeorm = require('./typeorm');
 const User = require('./model/userModel.js');
 const objectValidation = require('../validation/objectValidation');
-const baseCodes = require('../../baseCodesEmojis');
+
 
 run = async () => {
     

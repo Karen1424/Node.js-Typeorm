@@ -1,6 +1,5 @@
 // Standard requires
 const _ = require('lodash');
-const bigNumber = require('bignumber.js');
 
 // Library requires
 

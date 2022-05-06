@@ -5,7 +5,7 @@ const typeorm = require("typeorm");
 
 
 // Local requires
-const utils = require('../util/Utils.js');
+const utils = require('../util/Utils');
 
 class Typeorm {
 
@@ -16,7 +16,7 @@ class Typeorm {
             const c = {
                 ...utils.getConfigParameter('typeorm'),
                 ...{ entities: [
-                    require('./entity/userSchema.js'),
+                    require('./entity/userSchema'),
                    
                 ] }
             };

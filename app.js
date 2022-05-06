@@ -11,6 +11,4 @@ app.use(express.urlencoded({extended: false}));
 app.use(router);
 
 
-
-
 app.listen(PORT,() => console.log("server has been started on PORT " + PORT));

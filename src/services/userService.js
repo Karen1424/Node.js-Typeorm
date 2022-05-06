@@ -81,6 +81,33 @@ class UserService {
         .where("Users.user_id = :id", { id : code })
         .execute();
     }
+
+    static updateUserFields  = async (id,code) => {
+
+        console.log(code);
+        console.log(id);
+        let result =  await typeorm.connection
+        .createQueryBuilder()
+        .update(User)
+        .set({
+
+            fullName:code.full_name,
+            email: code.email,
+            password:code.password,
+            country:code.country,
+            age:code.age
+         })
+        .where("Users.user_id = :id", { id : id})
+        .execute();
+    
+        if (!result) {
+            errors.codeDoesNotExist.attributes[0] = code;
+            
+            throw new Error(errors.codeDoesNotExist.message, { cause: errors.codeDoesNotExist });
+        }
+        
+        return result;
+    }
 }
 
 module.exports = UserService;
